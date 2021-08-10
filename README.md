@@ -1,6 +1,9 @@
 
 # Expense Tracker
 
+### Expense Tracker is a proejct to keep track of what you usually spend by offering a user friendly interface.
+
+
 #### MERN Stack application that keeps track of the user's expenses.
 
 ## Login Page
