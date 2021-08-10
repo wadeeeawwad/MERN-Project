@@ -12,7 +12,7 @@ const TransactionSchema = new mongoose.Schema({
         required: [true, 'Please add a positive or negative number']
     },
     cheek:{
-        amount:{
+        cheekAmount:{
             type: Number,
             required: [true, 'Please add a positive or negative number']
 
@@ -26,10 +26,7 @@ const TransactionSchema = new mongoose.Schema({
 
 
     },
-    createdAt: {
-        type: Date,
-        default: Date.now
-    }
-});
+   
+},{timestamps:true});
 
 module.exports = mongoose.model('Transaction', TransactionSchema);
