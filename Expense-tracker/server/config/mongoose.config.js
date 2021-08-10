@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 mongoose
 	.connect("mongodb://localhost/beltDB", {
 		useNewUrlParser: true,
-		useCreateIndex: true,
+		// useCreateIndex: true,
 		useUnifiedTopology: true,
 	})
 	.then(() => console.log("Established a connection to the database"))
