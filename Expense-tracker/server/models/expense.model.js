@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const TransactionSchema = new mongoose.Schema({
-  
+
     name: {
         type: String,
         trim: true,
@@ -11,15 +11,15 @@ const TransactionSchema = new mongoose.Schema({
         type: Number,
         required: [true, 'Please add a positive or negative number']
     },
-    cheek:{
-        amount:{
+    cheek: {
+        amount: {
             type: Number,
             required: [true, 'Please add a positive or negative number']
 
         },
-        cheekDate:{
+        cheekDate: {
             type: Date,
-            required: [true, 'Please add date .']          
+            required: [true, 'Please add date .']
         }
 
 
