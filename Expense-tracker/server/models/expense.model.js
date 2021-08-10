@@ -21,10 +21,6 @@ const TransactionSchema = new mongoose.Schema({
             type: Date,
             required: [true, 'Please add date .']          
         }
-
-
-
-
     },
    
 },{timestamps:true});
