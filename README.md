@@ -1,12 +1,13 @@
+
 # Expense Tracker
 
-#### MERN Stack application that keeps track of the user's expenses.
+#### Expense Tracker is a proejct to keep track of what you usually spend by offering a user friendly interface.
 
-##### Deployed Version: https://expensetracker47.herokuapp.com/
 
-![expensetracker-homepage](https://user-images.githubusercontent.com/44681780/78200174-a9950280-7442-11ea-99c9-c7b8f68872af.jpg)
 
-![expensetracker-login](https://user-images.githubusercontent.com/44681780/78200175-aa2d9900-7442-11ea-8aeb-7ecd2b542203.jpg)
+## Login Page
+![Login](https://user-images.githubusercontent.com/75543501/128928634-470f5ee9-8521-4298-b398-e146b1674232.jpg)
 
-![expensetracker-register](https://user-images.githubusercontent.com/44681780/78200176-aac62f80-7442-11ea-82da-005c26971094.jpg)
 
+## Register Page
+![Register](https://user-images.githubusercontent.com/75543501/128928638-b92d0410-6049-43aa-8a93-f6ae3338981c.jpg)
