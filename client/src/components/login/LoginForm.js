@@ -13,6 +13,7 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import logo from '../images/logo.png';
+import Alert from "../alerts/Alert";
 
 function Copyright() {
 	return (
@@ -89,6 +90,7 @@ export default function SignIn() {
 				<Typography component="h1" variant="h5">
 					Sign in
 				</Typography>
+				<Alert />
 				<form onSubmit={onSubmit} className={classes.form} noValidate>
 					<TextField
 						variant="outlined"

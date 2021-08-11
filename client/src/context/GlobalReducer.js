@@ -1,7 +1,8 @@
+/* eslint-disable import/no-anonymous-default-export */
 export default (state, action) => {
     switch (action.type) {
         case 'USER_LOADED':
-            return {
+            return { // If its a get user then change that state
                 ...state,
                 user: action.payload,
                 loading: false,
@@ -10,7 +11,7 @@ export default (state, action) => {
         case 'LOGIN_SUCCESS':
         case 'REGISTER_SUCCESS':
             localStorage.setItem('token', action.payload.token);
-            return {
+            return { // if item is logged in then change the loged in state
                 ...state,
                 isAuthenticated: true,
                 token: action.payload,
@@ -20,7 +21,7 @@ export default (state, action) => {
         case 'AUTH_ERROR':
         case 'LOGOUT':
             localStorage.removeItem('token');
-            return {
+            return { // if logout then change the loged in state and other states
                 ...state,
                 token: null,
                 isAuthenticated: false,
@@ -30,11 +31,11 @@ export default (state, action) => {
                 transactions: []
             };
         case 'REMOVE_ERROR':
-            return {
+            return { // if timer up then change the error state and rerender (Error disappering)
                 ...state,
                 error: null
             };
-        case 'GET_TRANSACTIONS':
+        case 'GET_TRANSACTIONS': // if its a transaction get then change transaction state
             return {
                 ...state,
                 loading: false,
@@ -42,13 +43,13 @@ export default (state, action) => {
             };
         case 'ADD_TRANSACTION':
             return {
-                ...state,
+                ...state, // chage transaction state 
                 transactions: [action.payload, ...state.transactions],
                 loading: false
             };
         case 'DELETE_TRANSACTION':
             return {
-                ...state,
+                ...state, // delete transaction
                 transactions: state.transactions.filter(
                     transaction => transaction._id !== action.payload
                 ),

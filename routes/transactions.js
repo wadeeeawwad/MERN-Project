@@ -5,7 +5,7 @@ const {
     getTransactions,
     addTransaction,
     deleteTransaction
-} = require('../controllers/transactionsController');
+} = require('../controllers/transactionsController'); // Same is Importing from the Controller.Method
 
 router
     .route('/')
