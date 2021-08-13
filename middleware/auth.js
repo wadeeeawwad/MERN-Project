@@ -1,6 +1,6 @@
-const jwt = require('jsonwebtoken');
+const jwt = require('jsonwebtoken'); //Json Web Token
 
-module.exports = function(req, res, next) {
+module.exports = function(req, res,next) { // If We Remove the Next we will get Unothorized Access
     // Get Token from header
     const token = req.header('x-auth-token');
 

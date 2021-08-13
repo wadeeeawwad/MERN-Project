@@ -11,3 +11,5 @@
 
 ## Register Page
 ![Register](https://user-images.githubusercontent.com/75543501/128928638-b92d0410-6049-43aa-8a93-f6ae3338981c.jpg)
+
+![Dashboard](https://user-images.githubusercontent.com/75543501/129418061-92cd93c5-8d4c-4c25-a59c-c05d138690d0.jpg)

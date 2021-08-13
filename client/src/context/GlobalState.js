@@ -4,6 +4,8 @@ import axios from 'axios';
 import setAuthToken from '../utils/setAuthToken';
 import { uuid } from 'uuidv4';
 
+
+//States Used Often in our React app
 const initialState = {
     transactions: [],
     error: null,
@@ -14,27 +16,50 @@ const initialState = {
     alerts: []
 };
 
-export const GlobalContext = createContext(initialState);
+export const GlobalContext = createContext(initialState); // Create Context 
+
+// WE are using the userReducer Hook here so we can semplify out state setting logic here
+
 
 export const GlobalProvider = ({ children }) => {
-    const [state, dispatch] = useReducer(GlobalReducer, initialState);
+    const [state, dispatch] = useReducer(GlobalReducer, initialState);  // Reducer takes a state and returns a dispatcher
 
     // Actions
-    async function getTransactions() {
+    async function getTransactions() { // Function get transaction in the global state gets all transactions and returns them to the state defined in the reducer js
         try {
-            const res = await axios.get('/api/transactions');
-
-            dispatch({ type: 'GET_TRANSACTIONS', payload: res.data.data });
+            const res = await axios.get('/api/transactions'); // get all transactions
+            dispatch({ type: 'GET_TRANSACTIONS', payload: res.data.data }); // tell reducer what state to change by adding type GET_Transaction
         } catch (err) {
-            dispatch({
+            dispatch({ // If there is an Error dispatch Type TRANSACTION_ERROR with data that is the repsonse .error
                 type: 'TRANSACTION_ERROR',
                 payload: err.response.data.error
             });
         }
     }
 
+    async function addCheck(newCheck) {
+        const config = { // Pass this down in the request body becuase we need the headers in the jsonwebtoken auth.js middleware class
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        };
+        try {
+            const res = await axios.post(
+                '/api/checks',
+                newCheck,
+                config // passed in Body
+            );
+            // dispatch({ type: 'ADD_CHECK', payload: res.data.data }); // change the state that correponsdes to ADD_CHECK
+        } catch (err) {
+            dispatch({
+                type: 'CHECK_ERROR', // handle this error by the directions in the dispatcher class
+                payload: err.response.data.error
+            });
+        }
+    }
+
     async function addTransaction(transaction) {
-        const config = {
+        const config = { // Pass this down in the request body becuase we need the headers in the jsonwebtoken auth.js middleware class
             headers: {
                 'Content-Type': 'application/json'
             }
@@ -44,13 +69,12 @@ export const GlobalProvider = ({ children }) => {
             const res = await axios.post(
                 '/api/transactions',
                 transaction,
-                config
+                config // passed in Body
             );
-
-            dispatch({ type: 'ADD_TRANSACTION', payload: res.data.data });
+            dispatch({ type: 'ADD_TRANSACTION', payload: res.data.data }); // change thestate that correponsdes to ADD_TRANSACTION
         } catch (err) {
             dispatch({
-                type: 'TRANSACTION_ERROR',
+                type: 'TRANSACTION_ERROR', // handle this error by the directions in the dispatcher class
                 payload: err.response.data.error
             });
         }
@@ -59,7 +83,7 @@ export const GlobalProvider = ({ children }) => {
     async function deleteTransaction(id) {
         try {
             await axios.delete(`/api/transactions/${id}`);
-            dispatch({ type: 'DELETE_TRANSACTION', payload: id });
+            dispatch({ type: 'DELETE_TRANSACTION', payload: id }); // use dispatcher class too decide on state changes
         } catch (err) {
             dispatch({
                 type: 'TRANSACTION_ERROR',
@@ -151,6 +175,7 @@ export const GlobalProvider = ({ children }) => {
                 deleteTransaction,
                 addTransaction,
                 getTransactions,
+                addCheck,
                 registerUser,
                 loadUser,
                 login,

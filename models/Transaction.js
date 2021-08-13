@@ -14,6 +14,11 @@ const TransactionSchema = new mongoose.Schema({
         type: Number,
         required: [true, 'Please add a positive or negative number']
     },
+    comment : {
+        type: String,
+        trim: true,
+        required: [true,"Please Enter a Comment for this Transaction"]
+    },
     createdAt: {
         type: Date,
         default: Date.now
