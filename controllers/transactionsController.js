@@ -23,11 +23,11 @@ exports.getTransactions = async (req, res,next) => {
 // @route   POST /api/transactions
 exports.addTransaction = async (req, res,next) => {
     try {
-        const { name, amount } = req.body; // Destructuring
-
+        const { name, amount,comment } = req.body; // Destructuring
         const transaction = await Transaction.create({
             name: name,
             amount: amount,
+            comment : comment,
             user: req.user.id
         });
 

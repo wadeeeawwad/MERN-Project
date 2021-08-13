@@ -89,6 +89,8 @@ export default function SignUp() {
 		}
 
 		const newUser = {
+			firstname: user.firstname,
+			lastname: user.lastname,
 			email: user.email,
 			password: user.password,
 		};

@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 mongoose
-	.connect("mongodb://localhost/beltDB", {
+	.connect("mongodb://localhost/projectDB", {
 		useNewUrlParser: true,
 		useCreateIndex: true,
 		useUnifiedTopology: true,

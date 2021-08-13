@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken');
 // @desc    Register a user
 // @route   POST /api/users
 exports.addUser = async (req, res) => {
-    let { email, password } = req.body; // Destructuring
+    let { email, password ,firstname,lastname } = req.body; // Destructuring
     try {
         email = email.toLowerCase(); // change email to lower case so it can serach even if user entered capital letters by mistake or in domain name
         let user = await User.findOne({ email: email }); // search for simialr result
@@ -15,6 +15,8 @@ exports.addUser = async (req, res) => {
         }
 ////////////////////////////////Add First Name , Last Name Here
         user = new User({  //create new user with the data read from request boddy
+            firstname,
+            lastname,
             email,
             password
         });

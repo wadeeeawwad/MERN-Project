@@ -55,11 +55,26 @@ export default (state, action) => {
                 ),
                 loading: false
             };
+
         case 'TRANSACTION_ERROR':
             return {
                 ...state,
                 error: action.payload
             };
+
+        // case 'ADD_CHECK':
+        //     return {
+        //         ...state, // chage transaction state
+        //         transactions: [action.payload, ...state.transactions],
+        //         loading: false
+        //     };
+
+        case 'CHECK_ERROR':
+            return {
+                ...state,
+                error: action.payload
+            };
+
         case 'SET_ALERT':
             return {
                 ...state,

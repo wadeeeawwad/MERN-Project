@@ -3,6 +3,8 @@ import { GlobalContext } from '../../context/GlobalState';
 import { numberWithCommas } from '../../utils/format';
 
 const Balance = () => {
+
+
     const context = useContext(GlobalContext);
 
     const { transactions } = context;

@@ -1,14 +1,11 @@
-import React, { useContext, useEffect } from 'react';
-import { GlobalContext } from '../../context/GlobalState';
-
-import Header from '../transactions/Header';
-import Balance from '../transactions/Balance';
-import IncomeExpenses from '../transactions/IncomeExpenses';
+import React, {useContext, useEffect} from 'react';
+import {GlobalContext} from '../../context/GlobalState';
 import TransactionList from '../transactions/TransactionList';
 import AddTransaction from '../transactions/AddTransaction';
+import Dashboard from "../dashboard/Dashboard";
 
 const Home = () => {
-    const { loadUser } = useContext(GlobalContext);
+    const {loadUser} = useContext(GlobalContext);
 
     useEffect(() => {
         loadUser();
@@ -18,20 +15,7 @@ const Home = () => {
 
     return (
         <>
-            <Header />
-            <div className='container'>
-                <Balance />
-                <IncomeExpenses />
-            </div>
-            <div className='transaction-grid'>
-                <div className='transaction-list'>
-                    <TransactionList />
-                </div>
-
-                <div className='transaction-form'>
-                    <AddTransaction />
-                </div>
-            </div>
+            <Dashboard/>
         </>
     );
 };

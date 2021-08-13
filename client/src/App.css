@@ -70,8 +70,7 @@ h4 {
 
 .inc-exp-container {
     background-color: #fff;
-    box-shadow: var(--box-shadow);
-    padding: 20px;
+    /*box-shadow: var(--box-shadow);*/
     display: flex;
     justify-content: space-between;
     margin: 20px 0;
@@ -179,21 +178,16 @@ input[type='number'].transaction-input {
 
 .delete-btn {
     cursor: pointer;
-    background-color: #e74c3c;
+    background-color: #fff;
     border: 0;
-    color: #fff;
+    color: black;
     font-size: 20px;
     line-height: 20px;
     padding: 2px 5px;
-    position: absolute;
-    top: 50%;
-    left: 0;
-    transform: translate(-100%, -50%);
     opacity: 0;
-    transition: opacity 0.3s ease;
 }
 
-.list li:hover .delete-btn {
+.lol:hover .delete-btn {
     opacity: 1;
 }
 
@@ -374,6 +368,7 @@ input[type='submit'].btn {
     cursor: pointer;
     transition: 0.5s;
 }
+
 input[type='submit'].btn:hover {
     background-position: right;
 }
@@ -434,6 +429,7 @@ input[type='submit'].btn:hover {
     form {
         width: 100%;
     }
+
     .login-page-container {
         grid-template-columns: 1fr;
     }

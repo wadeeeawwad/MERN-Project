@@ -14,10 +14,10 @@ app.use(express.urlencoded({ extended: true })); // This is new
 
 
 // Routes
+app.use('/api/checks', require('./routes/checks'));
 app.use('/api/transactions', require('./routes/transactions'));  // Here we give the path context the the Express Route "/"" in transaction route
 app.use('/api/users', require('./routes/users')); // Here we give the path context the the Express Route "/"" in user route
 app.use('/api/auth', require('./routes/auth')); // Here we give the path context the the Express Route "/"" in auth route
-
 
 //Part of JWT Code
 if (process.env.NODE_ENV === 'production') {

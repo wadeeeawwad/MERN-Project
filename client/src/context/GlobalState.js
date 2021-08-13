@@ -37,6 +37,27 @@ export const GlobalProvider = ({ children }) => {
         }
     }
 
+    async function addCheck(newCheck) {
+        const config = { // Pass this down in the request body becuase we need the headers in the jsonwebtoken auth.js middleware class
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        };
+        try {
+            const res = await axios.post(
+                '/api/checks',
+                newCheck,
+                config // passed in Body
+            );
+            // dispatch({ type: 'ADD_CHECK', payload: res.data.data }); // change the state that correponsdes to ADD_CHECK
+        } catch (err) {
+            dispatch({
+                type: 'CHECK_ERROR', // handle this error by the directions in the dispatcher class
+                payload: err.response.data.error
+            });
+        }
+    }
+
     async function addTransaction(transaction) {
         const config = { // Pass this down in the request body becuase we need the headers in the jsonwebtoken auth.js middleware class
             headers: {
@@ -154,6 +175,7 @@ export const GlobalProvider = ({ children }) => {
                 deleteTransaction,
                 addTransaction,
                 getTransactions,
+                addCheck,
                 registerUser,
                 loadUser,
                 login,
