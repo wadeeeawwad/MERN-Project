@@ -57,7 +57,7 @@ export default function Orders() {
                                 <button
                                     className='delete-btn'
                                     onClick={() => deleteTransaction(row._id)}>
-                                    <DeleteIcon />
+                                    <DeleteIcon/>
                                 </button>}
                             </TableCell>
                             <TableCell>{row.createdAt.toString().slice(0, 10)}</TableCell>
@@ -78,7 +78,7 @@ export default function Orders() {
             </Table>
             <div className={classes.seeMore}>
                 <Link color="primary" href="#" onClick={preventDefault}>
-                    See more orders
+                    See Orders in details
                 </Link>
             </div>
         </React.Fragment>
