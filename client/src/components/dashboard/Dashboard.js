@@ -21,9 +21,11 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import {mainListItems, secondaryListItems} from './listItems';
 import Chart from './Chart';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Deposits from './Deposits';
 import Orders from './Orders';
 import AddTransaction from "../transactions/AddTransaction";
+import {Accordion, AccordionActions, AccordionSummary} from "@material-ui/core";
 
 function Copyright() {
     return (
@@ -194,7 +196,9 @@ export default function Dashboard() {
                             </Paper>
                         </Grid>
                     </Grid>
-                    <AddTransaction/>
+                    <Paper style={{marginTop: "2%"}} className={classes.paper}>
+                        <AddTransaction/>
+                    </Paper>
                     <Box pt={4}>
                         <Copyright/>
                     </Box>

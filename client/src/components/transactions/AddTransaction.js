@@ -29,7 +29,6 @@ const useStyles = makeStyles((theme) => ({
 const AddTransaction = () => {
     const context = useContext(GlobalContext);
     const classes = useStyles();
-
     const {addTransaction, addCheck} = context;
     const [text, setText] = useState("");
     const [amount, setAmount] = useState(1);
@@ -80,8 +79,7 @@ const AddTransaction = () => {
 
     return (
 
-
-        <>
+        <React.Fragment>
             <h3>Add New Transaction</h3>
             <form onSubmit={onSubmit}>
                 <div className="form-control">
@@ -95,7 +93,6 @@ const AddTransaction = () => {
                         required
                     />
                 </div>
-
                 <div className="form-control">
                     <label htmlFor="comment">Comment on Transaction</label>
                     <input
@@ -107,7 +104,6 @@ const AddTransaction = () => {
                         required
                     />
                 </div>
-
                 {!check && <div className="form-control">
                     <label htmlFor="amount">
                         Amount <br/>
@@ -121,7 +117,6 @@ const AddTransaction = () => {
                         required
                     />
                 </div>}
-
                 <FormControl className={classes.formControl}>
                     <InputLabel htmlFor="type-native-helper">Type</InputLabel>
                     <NativeSelect
@@ -140,7 +135,6 @@ const AddTransaction = () => {
                     </NativeSelect>
                     <FormHelperText>Choose Type of Transaction</FormHelperText>
                 </FormControl>
-
                 <FormControl component="fieldset">
                     <RadioGroup
                         row
@@ -163,7 +157,6 @@ const AddTransaction = () => {
                         />
                     </RadioGroup>
                 </FormControl>
-
                 {check && (
                     <div>
                         <div className="form-control">
@@ -180,7 +173,6 @@ const AddTransaction = () => {
                                 required
                             />
                         </div>
-
                         <div className="form-control">
                             <label htmlFor="towho">
                                 To Who <br/>
@@ -195,7 +187,6 @@ const AddTransaction = () => {
                                 required
                             />
                         </div>
-
                         <div className="form-control">
                             <MuiPickersUtilsProvider utils={DateFnsUtils}>
                                 <KeyboardDatePicker
@@ -214,15 +205,12 @@ const AddTransaction = () => {
                                     }}
                                 />
                             </MuiPickersUtilsProvider>
-
-
                         </div>
                     </div>
                 )}
-
                 <button className="btn">ADD TRANSACTION</button>
             </form>
-        </>
+        </React.Fragment>
     );
 };
 

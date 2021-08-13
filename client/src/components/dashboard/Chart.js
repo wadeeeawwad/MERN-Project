@@ -32,7 +32,6 @@ export default function Chart() {
         amount: transaction.amount
     }));
     dates.map((item) => daysConsumption[item.date] += item.amount);
-    console.log(daysConsumption)
 
     return (
         <React.Fragment>
